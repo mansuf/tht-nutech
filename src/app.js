@@ -31,6 +31,7 @@ async function initializeApp() {
   }
 }
 
+app.use(express.static("uploads"));
 app.use(express.json());
 
 app.use('/', userRoutes);
