@@ -1,0 +1,1 @@
+UPDATE Users SET balance = balance + $1 WHERE user_id = $2;

@@ -1,0 +1,1 @@
+UPDATE Users SET first_name = $1, last_name = $2 WHERE email = $3 RETURNING *;
