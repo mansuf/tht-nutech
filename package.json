@@ -16,7 +16,8 @@
     "multer": "^2.0.2",
     "node-fetch": "^3.3.2",
     "pg": "^8.16.3",
-    "pg-pool": "^3.10.1"
+    "pg-pool": "^3.10.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "jest": "^30.2.0",

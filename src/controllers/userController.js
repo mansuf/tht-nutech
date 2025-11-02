@@ -159,5 +159,32 @@ const userController = {
             }
         });
     },
+
+    updateProfileImage: async (req, res) => {
+        if (!req.file) {
+            return sendBadRequestResponse(res, 'File gambar tidak ditemukan');
+        }
+        const db = await connectDB();
+        const sqlFiles = await getSqlFiles();
+        let result;
+        try {
+            const imagePath = `${req.protocol}://${req.host}/uploads/${req.file.filename}`;
+            result = await db.query(sqlFiles.updateUserImage, [imagePath, req.user.email]);
+        } finally {
+            db.release();
+        }
+        const user = result.rows[0];
+
+        res.status(200).json({
+            status: 0,
+            message: "Update Profile Image berhasil",
+            data: {
+                email: user.email,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                profile_image: user.profile_image
+            }
+        });
+    }
 }
 module.exports = userController;

@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 
-const userRoutes = require('./routes/userRoutes');
+const routes = require('./routes');
 const auth = require('./middlewares/auth');
 const connectDB = require('./config/database');
 const { getSqlFiles } = require('./sql/sql_files');
@@ -31,10 +31,10 @@ async function initializeApp() {
   }
 }
 
-app.use(express.static("uploads"));
 app.use(express.json());
 
-app.use('/', userRoutes);
+app.use('/', routes);
+app.use("/uploads", express.static("uploads"));
 // app.use('/items', auth, itemRoutes);
 
 app.get('/', (req, res) => {
