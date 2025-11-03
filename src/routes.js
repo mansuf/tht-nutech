@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('./controllers/userController');
+const transactionsController = require('./controllers/transactionsController');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
@@ -38,5 +39,8 @@ router.post("/login", userController.login);
 router.get("/profile", auth, userController.getProfile);
 router.put("/profile/update", auth, userController.updateProfile);
 router.put("/profile/image", auth, upload.single('file'), userController.updateProfileImage);
+
+router.get("/banner", transactionsController.getBanners);
+router.get("/services", transactionsController.getServices);
 
 module.exports = router;

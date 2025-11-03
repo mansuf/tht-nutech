@@ -1,5 +1,6 @@
 const path = require('path');
 const fsPromises = require("node:fs/promises");
+const { get } = require('node:http');
 const basePath = path.resolve(__dirname);
 
 const SQL_FILES_PATH = {
@@ -11,6 +12,8 @@ const SQL_FILES_PATH = {
     getServiceAndUser: path.join(basePath, 'get_data', 'get_service_and_user.sql'),
     getTransactionsHistory: path.join(basePath, 'get_data', 'get_transactions_history.sql'),
     getUser: path.join(basePath, 'get_data', 'get_user.sql'),
+    getBanners: path.join(basePath, 'get_data', 'get_banners.sql'),
+    getServices: path.join(basePath, 'get_data', 'get_services.sql'),
 
     insertService: path.join(basePath, 'insert_data', 'insert_service.sql'),
     insertBanner: path.join(basePath, 'insert_data', 'insert_banner.sql'),
@@ -39,6 +42,8 @@ const getSqlFiles = async () => {
         getServiceAndUser: await readFile(SQL_FILES_PATH.getServiceAndUser),
         getTransactionsHistory: await readFile(SQL_FILES_PATH.getTransactionsHistory),
         getUser: await readFile(SQL_FILES_PATH.getUser),
+        getBanners: await readFile(SQL_FILES_PATH.getBanners),
+        getServices: await readFile(SQL_FILES_PATH.getServices),
 
         insertService: await readFile(SQL_FILES_PATH.insertService),
         insertBanner: await readFile(SQL_FILES_PATH.insertBanner),
