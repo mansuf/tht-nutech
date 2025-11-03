@@ -41,6 +41,11 @@ router.put("/profile/update", auth, userController.updateProfile);
 router.put("/profile/image", auth, upload.single('file'), userController.updateProfileImage);
 
 router.get("/banner", transactionsController.getBanners);
-router.get("/services", transactionsController.getServices);
+router.get("/services", auth, transactionsController.getServices);
+
+router.get("/balance", auth, transactionsController.getBalance);
+router.post("/topup", auth, transactionsController.doTopup);
+router.post("/transaction", auth, transactionsController.doTransaction);
+router.get("/transaction/history", auth, transactionsController.getTransactionHistory);
 
 module.exports = router;

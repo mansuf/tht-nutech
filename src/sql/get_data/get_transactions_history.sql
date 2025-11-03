@@ -12,4 +12,6 @@ JOIN
 WHERE
     U.email = $1
 ORDER BY
-    T.created_on DESC;
+    T.created_on DESC
+LIMIT $2
+OFFSET $3;

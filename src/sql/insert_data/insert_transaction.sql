@@ -5,4 +5,4 @@ INSERT INTO Transactions (
     service_name,
     transaction_type,
     total_amount
-) VALUES ($1, $2, $3, $4, $5, $6);
+) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;

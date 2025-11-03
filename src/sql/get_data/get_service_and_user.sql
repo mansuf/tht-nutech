@@ -1,7 +1,8 @@
 SELECT 
     u.balance,
-    s.service_tariff, 
-    s.service_name
+    s.service_code,
+    s.service_name,
+    s.service_tariff
 FROM 
     Users u, Services s
 WHERE 
