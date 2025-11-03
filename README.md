@@ -43,7 +43,7 @@ npm start
 
 ## Database Design (DDL)
 
-[!image](./database-design.drawio.png)
+[![image](./database-design.drawio.png)]
 
 ## Live URL API
 
